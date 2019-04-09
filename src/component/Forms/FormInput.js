@@ -1,39 +1,39 @@
 const formInput = (basicsOpportunityDetail) => {
     return [
         {
-            name: 'Opportunity Title',
+            name: 'title',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.title) || ''
         },
         {
-            name: 'Opportunity Description',
+            name: 'description',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.description) || ''
         },
         {
-            name: 'Earliest Start Date',
+            name: 'earliestStartDate',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.earliestStartDate) || ''
         },
         {
-            name: 'Latest End Date',
+            name: 'latestEndDate',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.latestEndDate) || ''
         },
         {
-            name: 'Selection Process',
-            value: (basicsOpportunityDetail && basicsOpportunityDetail.selection_process) || ''
+            name: 'selectionProcess',
+            value: (basicsOpportunityDetail && basicsOpportunityDetail.selectionProcess) || ''
         },
         {
-            name: 'Salary',
+            name: 'salary',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.salary) || ''
         },
         {
-            name: 'City',
+            name: 'city',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.location) || ''
         },
         {
-            name: 'Backgrounds',
+            name: 'background',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.backgrounds) || ''
         },
         {
-            name: 'Skills',
+            name: 'skill',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.skills) || ''
         },
     ]

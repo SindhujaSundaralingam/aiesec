@@ -1,14 +1,17 @@
 import React from 'react'
 import {observer} from 'mobx-react'
-// import {inputState} from './state'
-import { Select } from 'react-advanced-form-addons';
+import { Select } from 'react-dropdown-select';
+import { selectedValueState } from '../component/Forms/selectedValueState'
 
 class SelectDropDown extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             value: this.props.value,
-            selectedDropdown: this.props.selectedDropdown
+            selectedDropdown: this.props.selectedDropdown,
+            selectValues: [],
+            labelField: "name",
+            valueField: "id",
         };
     }
     renderoptions = (option) => {
@@ -39,14 +42,33 @@ class SelectDropDown extends React.Component {
     //     }
     // }
 
-    handleChange = (event) => {
-        //console
-      }
+    setValues = selectValues => { 
+        if(this.props.value === 'background')
+        {
+            selectedValueState.backgroundSelectedList = selectValues
+        }
+        else {
+            selectedValueState.skillsList = selectValues
+        }
+        this.setState({selectValues})
+    }
+
+    // handleChange = (event) => {
+    //     selectedValueState.backgroundSelectedList.push(event.nextValue)
+    //     this.setState({value: (event.nextValue)});
+    //   }
     render() {
         return (
-            <Select value={this.state.value} onChange={this.handleChange}>
-                {this.props.options.map(this.renderoptions)}
-            </Select>
+            <Select 
+                multi={true}
+                value={[this.state.value]}
+                options={this.props.options}
+                onChange={values => this.setValues(values)}
+                labelField={this.state.labelField}
+                valueField={this.state.valueField}
+                dropdownGap={5}
+                keepSelectedInList={true}
+                />
         )
     }
 }

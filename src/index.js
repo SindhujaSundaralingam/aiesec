@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from "react-apollo";
 import { client } from './graphql'
 import { App } from './component'
+import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
