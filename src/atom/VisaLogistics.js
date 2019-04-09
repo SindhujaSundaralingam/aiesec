@@ -44,7 +44,7 @@ class VisaLogistics extends Component {
     }
 
     getHealthIsurance = (legalDetails) => {
-        return legalDetails.find(item  => item.value === '')
+        return legalDetails.find(item  => item.label === 'Health Insurance')
     }
 
     renderHealthInsurance = (legalDetails) => {
@@ -52,7 +52,7 @@ class VisaLogistics extends Component {
         return (
             <div>
                 <h3>Health Insurance</h3>
-                <p>{healthInsurance}</p>
+                <p>{healthInsurance.value}</p>
             </div>
         )
     }
@@ -65,15 +65,42 @@ class VisaLogistics extends Component {
             </div>
         )
     }
+    
+    renderWorkingHoursDetails = (list) => {
+        const renderWorkingHourList = (item) => {
+            const { value } = item
+            return <li>{value}</li>
+        }
+
+        return (
+            <div>
+                <h3>Working hours</h3>
+                <ul>
+                    {list.map(renderWorkingHourList)}
+                </ul>
+            </div>
+        )
+    }
+
+    renderHostDetailView = (host_lc) => {
+        const { full_name } = host_lc
+        return (
+            <div>
+                <h3>Host AIESEC office</h3>
+                <p>{full_name}</p>
+            </div>
+        )
+    }
 
     renderVisaLogisticView = (context) => {
         const { getOpportunityDetails } = context
-        const { logisticDetails, legalDetails } = getOpportunityDetails
-        const renderWorkingHours = ''
+        const { logisticDetails, legalDetails, workingHours, host_lc } = getOpportunityDetails
+        const renderWorkingHours = this.renderWorkingHoursDetails(workingHours)
         const renderLogisticsView = this.renderLogistics(logisticDetails)
         const renderVisaView = this.renderVisa(legalDetails)
         const renderHealthInsuranceView = this.renderHealthInsurance(legalDetails)
         const renderTestimonialsView = this.renderTestimonials()
+        const renderHostView = this.renderHostDetailView(host_lc)
         return (
             <div>
                 <h1>Visa and Logistics</h1>
@@ -82,6 +109,7 @@ class VisaLogistics extends Component {
                 {renderVisaView}
                 {renderHealthInsuranceView}
                 {renderTestimonialsView}
+                {renderHostView}
             </div>
         )
     }

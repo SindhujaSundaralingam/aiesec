@@ -26,7 +26,7 @@ const formInput = (basicsOpportunityDetail) => {
         },
         {
             name: 'city',
-            value: (basicsOpportunityDetail && basicsOpportunityDetail.location) || ''
+            value: (basicsOpportunityDetail && basicsOpportunityDetail.city) || ''
         },
         {
             name: 'background',

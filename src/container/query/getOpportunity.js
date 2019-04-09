@@ -11,6 +11,12 @@ const GET_OPPORTUNITY = gql`
     latestEndDate
     applicationCloseDate
     selectionProcess
+    city
+    mainActivities
+    workingHours {
+      label
+      value
+    }
     volunteerDetails {
       label
       value

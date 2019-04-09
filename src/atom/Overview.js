@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getOpportunityContext } from '../component/OpportunityPage'
 import { getOverViewDetails } from './fixture'
 import { OverViewSectionWrapper } from './style'
+import { isArray } from 'util';
 
 class OverView extends Component {
     static contextType = getOpportunityContext;
@@ -9,16 +10,26 @@ class OverView extends Component {
     renderOverViewList = (list) => {
         const { label, value } = list
 
+        const renderList = (list) => {
+            return <li>{list}</li>
+        }
+
+        const renderActivityList = isArray(value) ? (
+            <ul>
+                {value.map(renderList)}
+            </ul>
+        ) : <p>{value}</p> 
         return (
             <OverViewSectionWrapper>
                 <h2>{label}</h2>
-                <p>{value}</p>
+                { renderActivityList }
             </OverViewSectionWrapper>
         )
     }
 
     renderOpportunityDetailView= (context) => {
-        const overViewDetails = getOverViewDetails(context)
+        const {getOpportunityDetails} = context
+        const overViewDetails = getOverViewDetails(getOpportunityDetails)
         const renderOverView = overViewDetails.map(this.renderOverViewList)
         return (
             <div>

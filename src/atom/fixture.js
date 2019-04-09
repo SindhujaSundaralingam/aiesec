@@ -4,6 +4,10 @@ const headerTitle = [
     'Visa and Logistics'
 ]
 
+function getActivities (activity) {
+    return activity
+}
+
 function getOverViewDetails (context) {
     const overViewDetails = [
         {
@@ -16,7 +20,7 @@ function getOverViewDetails (context) {
         },
         {
             "label": "Main activities",
-            "value": "dsfsdfsdfds"
+            "value": context.mainActivities.map(getActivities)
         }
     ]
     return overViewDetails

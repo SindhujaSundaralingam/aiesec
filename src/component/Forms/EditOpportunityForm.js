@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { Form } from 'react-advanced-form'
 import { Query } from 'react-apollo'
 import { client } from '../../graphql'
 import { Inputs, SelectDropdown, Datepicker } from '../../atom'
@@ -9,6 +8,9 @@ import { state } from '../state'
 import { selectedValueState } from './selectedValueState' 
 import { formInput } from './FormInput'
 import { feildRules, errorMessage } from './fixture'
+import {
+    StyledForm
+} from './styles'
 
 class EditOpportunityFormDetails extends Component {
 
@@ -91,10 +93,10 @@ class EditOpportunityFormDetails extends Component {
         const renderFormInput = formInput(state.opportunityDetails)
         const renderFormView = renderFormInput.map(this.renderFormInput)
         return (
-            <Form rules={feildRules} messages={errorMessage} action={this.updateOpportunity}>
+            <StyledForm rules={feildRules} messages={errorMessage} action={this.updateOpportunity}>
             {renderFormView}
             <button>Submit</button>
-            </Form>
+            </StyledForm>
         )
     }
 }
