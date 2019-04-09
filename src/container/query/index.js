@@ -1,2 +1,3 @@
 export * from './getOpportunity'
-export * from './transformPrerequisites'
+export * from './getSkillList'
+export * from './getBackgroundList'

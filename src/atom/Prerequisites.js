@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getOpportunityContext } from '../component/OpportunityPage'
-import { transformPrerequisitesList } from '../container/query'
  
 class Prerequisites extends Component {
     static contextType = getOpportunityContext;
@@ -24,7 +23,8 @@ class Prerequisites extends Component {
     }
 
     renderPrerequisitesView = (context) => {
-        const list = transformPrerequisitesList(context)
+        const { prerequisitesList } = context.getOpportunityDetails
+        const list = prerequisitesList
         const renderPrerequisitesListView = list.map(this.renderPrerequisitesList)
         return (
             <div>

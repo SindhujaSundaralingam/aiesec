@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OpportunityPage from './OpportunityPage'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { EditOpportunityForm } from './EditOpportunityForm'
+import { EditOpportunityForm } from './Forms'
 // import '../style/App.css';
 
 class App extends Component {

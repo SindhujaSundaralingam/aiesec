@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
+import { observer } from 'mobx-react'
+
 import {
   Banner,
   OpportunityDetails,
   VolunteerDetails
 } from '../molecule'
 import { GET_OPPORTUNITY } from '../container/query'
+import { state } from './state'
 
 const getOpportunityContext = React.createContext({})
 
 const { Provider } = getOpportunityContext
 
-function test(data) {
-    console.log('Data', data)
+function opportunityDetails(data) {
+  console.log('What is my data', data)
+  const { getOpportunityDetails } = data
+  const { backgrounds, skills } = getOpportunityDetails
+  state.opportunityDetails = getOpportunityDetails
+  state.backgroundList = backgrounds
+  state.skillsList = skills
 }
 
-class OpportunityPage extends Component {
+class OpportunityPageDetails extends Component {
   static contextType = getOpportunityContext
 
   render() {
@@ -23,7 +31,7 @@ class OpportunityPage extends Component {
         <Query query={GET_OPPORTUNITY}>
         {({ loading, data }) => !loading && (
           <Provider value={data}>
-            {test(data)}
+            {opportunityDetails(data)}
             <div className="OpportunityWrapper">
                 <Banner />
                 <OpportunityDetails />
@@ -35,6 +43,8 @@ class OpportunityPage extends Component {
     );
   }
 }
+
+const OpportunityPage = observer(OpportunityPageDetails)
 
 export default OpportunityPage;
 export { getOpportunityContext, OpportunityPage}

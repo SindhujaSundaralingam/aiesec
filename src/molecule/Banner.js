@@ -23,8 +23,8 @@ class Banner extends Component {
 
     renderChildren = (context) => {
         const { getOpportunityDetails } = context
-        const { cover_photo_urls } = getOpportunityDetails
-        const renderBannerImageView = this.renderBannerImage(cover_photo_urls)
+        const { coverPhoto } = getOpportunityDetails
+        const renderBannerImageView = this.renderBannerImage(coverPhoto)
         const renderOpportunityHeadingView = this.renderOpportunityHeading(getOpportunityDetails)
 
         return (

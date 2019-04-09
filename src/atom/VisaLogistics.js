@@ -5,18 +5,12 @@ class VisaLogistics extends Component {
     static contextType = getOpportunityContext;
 
     renderList = (item) => {
-        return <li key={item}>{item}</li>
+        const { value } = item
+        return <li key={value}>{value}</li>
     }
 
     renderLogistics = (logisticsDetail) => {
-        const { food_covered, food_weekends, accommodation_covered, accommodation_provided} = logisticsDetail
-        const list = [
-            food_covered,
-            food_weekends,
-            accommodation_covered,
-            accommodation_provided
-        ]
-        const renderListView = list.map(this.renderList)
+        const renderListView = logisticsDetail.map(this.renderList)
 
         return (
             <div>
@@ -40,24 +34,7 @@ class VisaLogistics extends Component {
     }
 
     renderVisa = (legalDetails) => {
-
-        const { visa_link, visa_type, visa_duration} = legalDetails
-        const list = [ // TODO move to graphql
-            {
-                label: "VISA TYPE",
-                value: visa_type
-            },
-            {
-                label: "VISA DURATION",
-                value: visa_duration
-            },
-            {
-                label: "VISA LINK",
-                value: visa_link
-            }
-
-        ]
-        const renderVisaDetails = list.map(this.renderVisaList)
+        const renderVisaDetails = legalDetails.map(this.renderVisaList)
 
         return (
             <div>
@@ -66,12 +43,16 @@ class VisaLogistics extends Component {
             </div>)
     }
 
-    renderHealthInsurance = (insuranceDetails) => {
-        const { health_insurance_info } = insuranceDetails
+    getHealthIsurance = (legalDetails) => {
+        return legalDetails.find(item  => item.value === '')
+    }
+
+    renderHealthInsurance = (legalDetails) => {
+        const healthInsurance = this.getHealthIsurance(legalDetails)
         return (
             <div>
                 <h3>Health Insurance</h3>
-                <p>{health_insurance_info}</p>
+                <p>{healthInsurance}</p>
             </div>
         )
     }
@@ -87,11 +68,11 @@ class VisaLogistics extends Component {
 
     renderVisaLogisticView = (context) => {
         const { getOpportunityDetails } = context
-        const { logistics_info, legal_info } = getOpportunityDetails
+        const { logisticDetails, legalDetails } = getOpportunityDetails
         const renderWorkingHours = ''
-        const renderLogisticsView = this.renderLogistics(logistics_info)
-        const renderVisaView = this.renderVisa(legal_info)
-        const renderHealthInsuranceView = this.renderHealthInsurance(legal_info)
+        const renderLogisticsView = this.renderLogistics(logisticDetails)
+        const renderVisaView = this.renderVisa(legalDetails)
+        const renderHealthInsuranceView = this.renderHealthInsurance(legalDetails)
         const renderTestimonialsView = this.renderTestimonials()
         return (
             <div>

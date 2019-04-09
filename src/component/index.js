@@ -1,3 +1,3 @@
 export * from './App'
-export * from './EditOpportunityForm'
+export * from './Forms'
 export * from './OpportunityPage'
