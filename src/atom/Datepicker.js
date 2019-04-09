@@ -1,8 +1,9 @@
 import React from 'react'
-import DatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker'
+import { observer } from 'mobx-react'
 import { selectedValueState } from '../component/Forms/selectedValueState'
 
-class Datepicker extends React.Component {
+class DatePickerView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +13,7 @@ class Datepicker extends React.Component {
     
     handleChange = (value) => {
         if(this.props.name === 'earliestStartDate') {
-            selectedValueState.earliestStartDateValue = value
+            selectedValueState.earliestStartDate = value
         }
         else {
             selectedValueState.latestEndDate = value
@@ -23,10 +24,15 @@ class Datepicker extends React.Component {
     }
     render() {
         return (
-            <DatePicker selected={this.state.date} onChange={this.handleChange} />
+            <DatePicker 
+            selected={this.state.date} 
+            onChange={this.handleChange}
+            value={new Date(this.props.value)} />
         )
     }
 }
+
+const Datepicker = observer(DatePickerView)
 
 export default Datepicker
 export { Datepicker }

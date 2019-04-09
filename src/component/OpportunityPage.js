@@ -28,7 +28,9 @@ class OpportunityPageDetails extends Component {
 
   render() {
     return (
-        <Query query={GET_OPPORTUNITY}>
+        <Query 
+        query={GET_OPPORTUNITY}
+        fetchPolicy= {'network-only'}>
         {({ loading, data }) => !loading && (
           <Provider value={data}>
             {opportunityDetails(data)}

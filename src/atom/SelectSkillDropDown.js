@@ -2,6 +2,7 @@ import React from 'react'
 import {observer} from 'mobx-react'
 import { Select } from 'react-dropdown-select';
 import { selectedValueState } from '../component/Forms/selectedValueState'
+import { state } from '../component/state'
 
 class SelectDropDown extends React.Component {
     constructor(props) {
@@ -52,12 +53,9 @@ class SelectDropDown extends React.Component {
         }
         this.setState({selectValues})
     }
-
-    // handleChange = (event) => {
-    //     selectedValueState.backgroundSelectedList.push(event.nextValue)
-    //     this.setState({value: (event.nextValue)});
-    //   }
+    
     render() {
+        const defaultSelectedValues = this.props.value === 'background' ? state.backgroundList : state.skillsList
         return (
             <Select 
                 multi={true}
@@ -68,6 +66,7 @@ class SelectDropDown extends React.Component {
                 valueField={this.state.valueField}
                 dropdownGap={5}
                 keepSelectedInList={true}
+                values={defaultSelectedValues}
                 />
         )
     }

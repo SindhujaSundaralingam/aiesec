@@ -4,12 +4,14 @@ class SelectedValueState {
     backgroundSelectedList = []
     selectedSkillList = []
     latestEndDate = ''
-    earliestEndDate = ''
+    earliestStartDate = ''
 }
 
 decorate(SelectedValueState,{
     backgroundList: observable,
-    skillsList:  observable
+    skillsList:  observable,
+    latestEndDate: observable,
+    earliestStartDate: observable
 })
 
 const selectedValueState = new SelectedValueState()
