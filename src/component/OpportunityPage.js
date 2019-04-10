@@ -9,6 +9,7 @@ import {
 } from '../molecule'
 import { GET_OPPORTUNITY } from '../container/query'
 import { state } from './state'
+import { ContentWrap  } from './style'
 
 const getOpportunityContext = React.createContext({})
 
@@ -36,8 +37,10 @@ class OpportunityPageDetails extends Component {
             {opportunityDetails(data)}
             <div className="OpportunityWrapper">
                 <Banner />
-                <OpportunityDetails />
-                <VolunteerDetails />
+                <ContentWrap>
+                  <OpportunityDetails />
+                  <VolunteerDetails />
+                </ContentWrap>
             </div>
           </Provider>
         )}

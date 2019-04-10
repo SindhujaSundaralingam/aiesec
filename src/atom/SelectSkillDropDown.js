@@ -19,30 +19,6 @@ class SelectDropDown extends React.Component {
         return <option value={option.name}>{option.name}</option>
     }
 
-    // setValue = (value) => {
-    //     const keyValue = this.props.index
-    //     const selectedNode = this.props.isBackground ? 'backgrounds' : 'skills'
-    //     if(inputState.selectedValue[selectedNode].length > 0) {
-    //         const found = inputState.selectedValue[selectedNode].find(function (item, index) {
-    //             return item.key === keyValue
-    //         })
-    //         if(found) {
-    //             switch(this.state.selectedDropdown) {
-    //                 case 'option':
-    //                     inputState.selectedValue[selectedNode][found.key].option = value
-    //                     break;
-    //                 case 'level':
-    //                     inputState.selectedValue[selectedNode][found.key].level = parseInt(value)
-    //                     break;
-    //                 default:
-    //                     inputState.selectedValue[selectedNode][found.key].name = value
-    //                     break;
-    //             }
-                
-    //         }
-    //     }
-    // }
-
     setValues = selectValues => { 
         if(this.props.value === 'background')
         {

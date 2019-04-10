@@ -1,5 +1,5 @@
 .App {
-  font-family: "Lato", sans-serif!important;
+  text-align: center;
 }
 
 .App-logo {
@@ -21,11 +21,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-.heading {
-  display: flex;
-  justify-content: center;
 }
 
 @keyframes App-logo-spin {

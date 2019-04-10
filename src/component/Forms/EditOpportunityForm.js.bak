@@ -8,7 +8,9 @@ import { state } from '../state'
 import { selectedValueState } from './selectedValueState' 
 import { formInput } from './FormInput'
 import { feildRules, errorMessage } from './fixture'
-import { TitleConatiner, StyledForm, StyledSelect, StyledButton, FormConatiner, InputCont } from '../style'
+import {
+    StyledForm
+} from './styles'
 
 class EditOpportunityFormDetails extends Component {
 
@@ -53,14 +55,14 @@ class EditOpportunityFormDetails extends Component {
             if(name === 'background') {
                 return (<Query query={GET_BACKGROUND_LIST}>
                     {({ loading, data }) => !loading && (
-                       <StyledSelect><SelectDropdown options={data.getBackgroundList} value={name} /></StyledSelect>
+                       <SelectDropdown options={data.getBackgroundList} value={name} />
                     )}
                 </Query>)
             }
             else {
                 return (<Query query={GET_SKILL_LIST}>
                     {({ loading, data }) => !loading && (
-                       <StyledSelect><SelectDropdown options={data.getSkillList} value={name} /></StyledSelect>
+                       <SelectDropdown options={data.getSkillList} value={name} />
                     )}
                 </Query>)
             }
@@ -77,10 +79,10 @@ class EditOpportunityFormDetails extends Component {
         const { name } = formInput
         const renderInputFeildValue = this.renderInputFeild(formInput)
         return (
-            <FormConatiner className='form-container'>
-                <TitleConatiner>{name}</TitleConatiner>
+            <div>
+                <div>{name}</div>
                 {renderInputFeildValue}
-            </FormConatiner>
+            </div>
         )
     }
 
@@ -88,13 +90,10 @@ class EditOpportunityFormDetails extends Component {
         const renderFormInput = formInput(state.opportunityDetails)
         const renderFormView = renderFormInput.map(this.renderFormInput)
         return (
-            <React.Fragment>
-                <h2 className="heading">Edit Opportunity</h2>
-                <StyledForm rules={feildRules} messages={errorMessage} action={this.updateOpportunity}>
-                    <InputCont>{renderFormView}</InputCont>
-                    <StyledButton><button>Submit</button></StyledButton>
-                </StyledForm>
-            </React.Fragment>
+            <StyledForm rules={feildRules} messages={errorMessage} action={this.updateOpportunity}>
+            {renderFormView}
+            <button>Submit</button>
+            </StyledForm>
         )
     }
 }

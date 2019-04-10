@@ -5,7 +5,7 @@ import { headerTitle } from './fixture'
 class Header extends Component {
 
     renderHeaderView = (list) => {
-        return <h1 key={list}>{list}</h1>
+        return <h4 key={list}>{list}</h4>
     }
     render() {
         const HeaderView = headerTitle.map(this.renderHeaderView)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getOpportunityContext } from '../component/OpportunityPage'
+import { ColumnWrapper } from './style'
  
 class Prerequisites extends Component {
     static contextType = getOpportunityContext;
@@ -13,12 +14,12 @@ class Prerequisites extends Component {
         const { label, value } = item
         const renderListView = value.map(this.renderList)
         return (
-            <div>
-                <h3>{label}</h3>
+            <ColumnWrapper>
+                <h4>{label}</h4>
                 <ul>
                     {renderListView}
                 </ul>  
-            </div>
+            </ColumnWrapper>
         )
     }
 
@@ -28,7 +29,7 @@ class Prerequisites extends Component {
         const renderPrerequisitesListView = list.map(this.renderPrerequisitesList)
         return (
             <div>
-                <h1>Prerequisites</h1>
+                <h2>Prerequisites</h2>
                 {renderPrerequisitesListView}
             </div>
         )

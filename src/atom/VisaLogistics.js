@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getOpportunityContext } from '../component/OpportunityPage'
+import { ColumnWrapper } from './style'
 
 class VisaLogistics extends Component {
     static contextType = getOpportunityContext;
@@ -13,34 +14,46 @@ class VisaLogistics extends Component {
         const renderListView = logisticsDetail.map(this.renderList)
 
         return (
-            <div>
-                <h3>Logistics</h3>
+            <ColumnWrapper>
+                <h4>Logistics</h4>
                 <ul>
                     {renderListView}
                 </ul>
-            </div>
+            </ColumnWrapper>
         )
     }
 
     renderVisaList = (list) => {
         const { label, value } = list
         
-        return (
-            <div>
-                <h5>{label}</h5>
-                <p>{value}</p>
-            </div>
-        )
+        if(label !== 'Health Insurance') {
+            return (
+                <React.Fragment>
+                    <h5>{label}</h5>
+                    <p>{value}</p>
+                </React.Fragment>
+            )
+        }
+        else {
+            return (
+                <React.Fragment>
+                </React.Fragment>
+            )
+        }
+        
     }
 
     renderVisa = (legalDetails) => {
         const renderVisaDetails = legalDetails.map(this.renderVisaList)
 
         return (
-            <div>
-                <h3>Visa</h3>
-                {renderVisaDetails}
-            </div>)
+            <ColumnWrapper>
+                <h4>Visa</h4>
+                <div>
+                    {renderVisaDetails}
+                </div>
+            </ColumnWrapper>
+        )
     }
 
     getHealthIsurance = (legalDetails) => {
@@ -50,17 +63,17 @@ class VisaLogistics extends Component {
     renderHealthInsurance = (legalDetails) => {
         const healthInsurance = this.getHealthIsurance(legalDetails)
         return (
-            <div>
-                <h3>Health Insurance</h3>
+            <ColumnWrapper>
+                <h4>Health Insurance</h4>
                 <p>{healthInsurance.value}</p>
-            </div>
+            </ColumnWrapper>
         )
     }
 
     renderTestimonials = () => {
         return (
             <div>
-                <h3> Testimonials </h3>
+                <h4> Testimonials </h4>
                 <p> There are no testimonials for this opportunity, yet </p>
             </div>
         )
@@ -103,7 +116,7 @@ class VisaLogistics extends Component {
         const renderHostView = this.renderHostDetailView(host_lc)
         return (
             <div>
-                <h1>Visa and Logistics</h1>
+                <h2>Visa and Logistics</h2>
                 {renderWorkingHours}
                 {renderLogisticsView}
                 {renderVisaView}

@@ -21,8 +21,8 @@ class OverView extends Component {
         ) : <p>{value}</p> 
         return (
             <OverViewSectionWrapper>
-                <h2>{label}</h2>
-                { renderActivityList }
+                <h4>{label}</h4>
+                <p>{value}</p>
             </OverViewSectionWrapper>
         )
     }
@@ -33,7 +33,7 @@ class OverView extends Component {
         const renderOverView = overViewDetails.map(this.renderOverViewList)
         return (
             <div>
-                <h1> Overview </h1>
+                <h2> Overview </h2>
                 {renderOverView}
             </div>
         )

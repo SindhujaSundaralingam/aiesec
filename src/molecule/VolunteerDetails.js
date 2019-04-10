@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getOpportunityContext } from '../component/OpportunityPage'
+import { VolunteerWrapper } from './style'
 
 class VolunteerDetails extends Component {
     static contextType = getOpportunityContext;
@@ -22,9 +23,9 @@ class VolunteerDetails extends Component {
         const renderVolunteerDetails = volunteerDetails.map(this.renderList)
 
         return (
-            <div>
+            <VolunteerWrapper>
                 {renderVolunteerDetails}
-            </div>
+            </VolunteerWrapper>
         )
     }
 

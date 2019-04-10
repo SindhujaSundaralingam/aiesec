@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { StyledImage, TitleWrapper, StyledLink } from './style'
 import { getOpportunityContext } from '../component/OpportunityPage'
 
 class Banner extends Component {
     static contextType = getOpportunityContext;
 
     renderBannerImage = (imageUrl) => {
-        return <img src={imageUrl} alt="Banner" />
+        return <StyledImage src={imageUrl} alt="Banner" />
     }
 
     renderOpportunityHeading = (headingDetails) => {
         const { title, location } = headingDetails
 
         return (
-            <div>
+            <TitleWrapper>
                 <h1>{title}</h1>
                 <h3>{location}</h3>
-                <Link to="/editOpportunity"> Edit Opportunity </Link>
-            </div>
+                <StyledLink to="/editOpportunity"> Edit Opportunity </StyledLink>
+            </TitleWrapper>
         )
     }
 
