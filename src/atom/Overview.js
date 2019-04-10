@@ -22,7 +22,7 @@ class OverView extends Component {
         return (
             <OverViewSectionWrapper>
                 <h4>{label}</h4>
-                <p>{value}</p>
+                {renderActivityList}
             </OverViewSectionWrapper>
         )
     }
