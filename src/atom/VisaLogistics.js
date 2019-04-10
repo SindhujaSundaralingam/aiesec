@@ -5,6 +5,16 @@ import { ColumnWrapper } from './style'
 class VisaLogistics extends Component {
     static contextType = getOpportunityContext;
 
+    renderValue = (label) => {
+        switch(label) {
+            case 'food_covered': return 'Food Provided'
+            case 'food_weekends': return 'Not on weekends'
+            case 'accommodation_covered': return 'Accommodation Covered'
+            case 'accommodation_provided': return 'Accommodation Provided'
+            default: return ''
+        }
+    }
+
     renderList = (item) => {
         const { value } = item
         return <li key={value}>{value}</li>
@@ -86,12 +96,12 @@ class VisaLogistics extends Component {
         }
 
         return (
-            <div>
-                <h3>Working hours</h3>
+            <ColumnWrapper>
+                <h4>Working hours</h4>
                 <ul>
                     {list.map(renderWorkingHourList)}
                 </ul>
-            </div>
+            </ColumnWrapper>
         )
     }
 

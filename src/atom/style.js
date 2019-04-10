@@ -12,8 +12,14 @@ const ColumnWrapper = styled.div`
     h4 {
         display: flex;
         flex: 0 0 30%;
+        align-items: center;
     }
     div {
+        padding-left: 25px;
+    }
+    >p {
+        display: flex;
+        align-items: center;
         padding-left: 25px;
     }
 `

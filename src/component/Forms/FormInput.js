@@ -25,16 +25,16 @@ const formInput = (basicsOpportunityDetail) => {
             value: (basicsOpportunityDetail && basicsOpportunityDetail.salary) || ''
         },
         {
-            name: 'city',
-            value: (basicsOpportunityDetail && basicsOpportunityDetail.city) || ''
-        },
-        {
             name: 'background',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.backgrounds) || ''
         },
         {
             name: 'skill',
             value: (basicsOpportunityDetail && basicsOpportunityDetail.skills) || ''
+        },
+        {
+            name: 'city',
+            value: (basicsOpportunityDetail && basicsOpportunityDetail.city) || ''
         },
     ]
 }

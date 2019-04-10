@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 const OpportunityWrapper = styled.div`
     padding: 120px 30px 30px 0;
     font-family: "Lato", sans-serif;
+    flex: 0 0 50%;
 `
 const VolunteerWrapper = styled.div`
     padding: 120px 0 30px 30px;
     font-family: "Lato", sans-serif;
+    flex: 0 0 50%;
 `
 
 const StyledImage = styled.img`

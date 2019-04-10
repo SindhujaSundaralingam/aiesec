@@ -28,6 +28,16 @@
   justify-content: center;
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul li {
+  padding: 5px 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -87,6 +87,7 @@ class EditOpportunityFormDetails extends Component {
     render() {
         const renderFormInput = formInput(state.opportunityDetails)
         const renderFormView = renderFormInput.map(this.renderFormInput)
+        if(state.opportunityDetails.id) {
         return (
             <React.Fragment>
                 <h2 className="heading">Edit Opportunity</h2>
@@ -96,6 +97,11 @@ class EditOpportunityFormDetails extends Component {
                 </StyledForm>
             </React.Fragment>
         )
+    }
+    else {
+        this.props.history.push('/')
+        return <React.Fragment></React.Fragment>
+    }
     }
 }
 

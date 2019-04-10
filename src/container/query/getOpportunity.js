@@ -18,9 +18,31 @@ const GET_OPPORTUNITY = gql`
       value
     }
     volunteerDetails {
-      label
-      value
-    }
+      language {
+       label
+       value
+     }
+     earliestStartDate {
+       label
+       value
+     }
+     latestEndDate {
+       label
+       value
+     }
+     duration {
+       label
+       value
+     }
+     salary {
+       label
+       value
+     }
+     positions {
+       label
+       value
+     }
+   }
     prerequisitesList {
       label
       value {

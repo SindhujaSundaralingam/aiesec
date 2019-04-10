@@ -4,6 +4,7 @@ import { Form } from 'react-advanced-form'
 const ContentWrap = styled.div`
     display: flex;
     padding: 0 100px;
+    flex-direction: row;
 `
 const TitleConatiner = styled.div`
     text-transform: capitalize;
