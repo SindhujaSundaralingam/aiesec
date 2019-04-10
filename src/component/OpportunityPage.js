@@ -16,7 +16,6 @@ const getOpportunityContext = React.createContext({})
 const { Provider } = getOpportunityContext
 
 function opportunityDetails(data) {
-  console.log('What is my data', data)
   const { getOpportunityDetails } = data
   const { backgrounds, skills } = getOpportunityDetails
   state.opportunityDetails = getOpportunityDetails

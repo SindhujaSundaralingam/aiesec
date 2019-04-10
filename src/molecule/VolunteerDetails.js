@@ -17,33 +17,33 @@ class VolunteerDetails extends Component {
 
         return (
             <React.Fragment>
-                <div>
-                    <div className={'volunteer_language'}>
-                        <h4>{language.label}</h4>
+                <div className={'volunteer_language'}>
+                    <div>
+                        <h5>{language.label}</h5>
                         <p>{language.value}</p>
                     </div>
                 </div>
-                <div>
-                    <div className={'volunteer_earliestStartDate'}>
-                        <h4>{earliestStartDate.label}</h4>
+                <div className={'volunteer_date'}>
+                    <div>
+                        <h5>{earliestStartDate.label}</h5>
                         <p>{earliestStartDate.value}</p>
                     </div>
-                    <div className={'volunteer_latestEndDate'}>
-                        <h4>{latestEndDate.label}</h4>
+                    <div>
+                        <h5>{latestEndDate.label}</h5>
                         <p>{latestEndDate.value}</p>
                     </div>
-                    <div className={'volunteer_duration'}>
-                        <h4>{duration.label}</h4>
+                    <div>
+                        <h5>{duration.label}</h5>
                         <p>{duration.value}</p>
                     </div>
                 </div>
-                <div>
-                    <div className={'volunteer_salary'}>
-                        <h4>{salary.label}</h4>
+                <div className={'volunteer_salaryPosition'}>
+                    <div>
+                        <h5>{salary.label}</h5>
                         <p>{salary.value}</p>
                     </div>
-                    <div className={'volunteer_positions'}>
-                        <h4>{positions.label}</h4>
+                    <div>
+                        <h5>{positions.label}</h5>
                         <p>{positions.value}</p>
                     </div>
                 </div>

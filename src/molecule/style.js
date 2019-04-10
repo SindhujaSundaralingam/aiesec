@@ -7,8 +7,10 @@ const OpportunityWrapper = styled.div`
     flex: 0 0 50%;
 `
 const VolunteerWrapper = styled.div`
-    padding: 120px 0 30px 30px;
+    padding: 120px 30px 30px 30px;
     font-family: "Lato", sans-serif;
+    border: 1px solid #cbcbcb;
+    height: 350px;
     flex: 0 0 50%;
 `
 

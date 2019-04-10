@@ -16,8 +16,9 @@ class VisaLogistics extends Component {
     }
 
     renderList = (item) => {
-        const { value } = item
-        return <li key={value}>{value}</li>
+        const { value, label } = item
+        const LabelValue = this.renderValue(label)
+        return <li key={value}>{LabelValue}</li>
     }
 
     renderLogistics = (logisticsDetail) => {
