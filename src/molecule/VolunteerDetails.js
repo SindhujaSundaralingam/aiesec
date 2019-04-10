@@ -7,9 +7,9 @@ class VolunteerDetails extends Component {
 
     renderList = (listItem) => {
         const { label, value } = listItem
-
+        const classname = 'volunteer_'+label.toLowerCase()
         return (
-            <div>
+            <div className={classname}>
                 <h4>{label}</h4>
                 <p>{value}</p>
             </div>
